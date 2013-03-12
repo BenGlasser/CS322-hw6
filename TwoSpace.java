@@ -66,11 +66,11 @@ class TwoSpace extends Heap {
       if (obj >= 0) return obj;
       int addy = size+obj;
       int retval = hp;
-      if (heap[addy] < 0 && obj < 0)  return heap[addy];
+      if (heap[addy] < 0)  return heap[addy];
 
-      if (heap[addy] < 0 && obj >= 0){
-          for (int i = addy; i <= heap[addy]; i++){
-              toSpace[hp++] = heap[i];
+      if (heap[addy] >= 0){
+          for (int i = 0; i <= heap[addy]; i++){
+              toSpace[hp++] = heap[addy+i];
           }
           heap[addy] = retval-size;
       }
@@ -89,16 +89,9 @@ class TwoSpace extends Heap {
     // any pointer fields that we find to make sure the
     // objects that they refer to are copied into toSpace.
 
-    // delete the following line (and also this commment!):
-    //fatal("scavenge() has not been implemented yet!");
-      int addy = size+obj;
-      int retval = hp;
-      if (heap[addy] < 0 && obj >= 0){
-          for (int i = addy; i <= heap[addy]; i++){
-              forward(heap[i]);
-          }
-          heap[addy] = retval-size;
+      for (int i = obj; i < (obj+len); i++) {
+          toSpace[i] = forward(toSpace[i]);
       }
-      return retval;
+      return len+1;
   }
 }
