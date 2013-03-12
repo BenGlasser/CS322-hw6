@@ -84,12 +84,12 @@ class TwoSpace extends Heap {
    *  start of the object).
    */
   private int scavenge(int obj) {
-    int len = toSpace[obj];
+      int len = toSpace[obj];
     // Scan the fields in this object, using forward on
     // any pointer fields that we find to make sure the
     // objects that they refer to are copied into toSpace.
 
-      for (int i = obj; i < (obj+len); i++) {
+      for (int i = obj; i <= (obj+len); i++) {
           toSpace[i] = forward(toSpace[i]);
       }
       return len+1;
