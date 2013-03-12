@@ -22,8 +22,8 @@ class Heap {
     // Only one of the following two lines should be uncommented,
     // depending on whether you want to use a Heap or a TwoSpace,
     // either without or with garbage collection, respectively.
-    return new Heap(size);
-    //return new TwoSpace(size);
+    //return new Heap(size);
+    return new TwoSpace(size);
   }
 
   /** Print out a description of the heap contents.

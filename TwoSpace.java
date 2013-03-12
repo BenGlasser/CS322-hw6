@@ -62,10 +62,19 @@ class TwoSpace extends Heap {
     //    a pointer, this will be a negative number).
     // The description here is longer than my code!
 
-    // delete the following line (and also this commment!):
-    fatal("forward has not been implemented!");
 
-    return obj;
+      if (obj >= 0) return obj;
+      int addy = size+obj;
+      int retval = hp;
+      if (heap[addy] < 0 && obj < 0)  return heap[addy];
+
+      if (heap[addy] < 0 && obj >= 0){
+          for (int i = addy; i <= heap[addy]; i++){
+              toSpace[hp++] = heap[i];
+          }
+          heap[addy] = retval-size;
+      }
+      return retval;
   }
 
   /** Scavenge an object in toSpace for pointers to reachable objects
@@ -81,8 +90,15 @@ class TwoSpace extends Heap {
     // objects that they refer to are copied into toSpace.
 
     // delete the following line (and also this commment!):
-    fatal("scavenge() has not been implemented yet!");
-
-    return 1+len;
+    //fatal("scavenge() has not been implemented yet!");
+      int addy = size+obj;
+      int retval = hp;
+      if (heap[addy] < 0 && obj >= 0){
+          for (int i = addy; i <= heap[addy]; i++){
+              forward(heap[i]);
+          }
+          heap[addy] = retval-size;
+      }
+      return retval;
   }
 }
