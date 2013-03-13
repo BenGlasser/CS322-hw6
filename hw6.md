@@ -40,3 +40,49 @@ We can manipulate N and S however we see fit, as long as this relationship holds
 
 If we had a working garbage collector, everytime the heap filled up the next object would blow it away and start writing values on a fresh heap since none of the objects have any data in them thats being used.
 ##Question 2
+
+##Question 3
+1.  The referenced program produces the following output:
+<?prettify?>
+<pre>
+	Object at address -100, length=3, data=[0, 0, 0]
+	Object at address -96, length=9, data=[-82, -70, 0, 0, 0, 0, 0, 0, 0]
+	Object at address -86, length=3, data=[0, 0, 0]
+	Object at address -82, length=5, data=[0, 0, 0, 0, 0]
+	Object at address -76, length=5, data=[0, 0, 0, 0, 0]
+	Object at address -70, length=4, data=[0, 0, 0, 0]
+	Object at address -65, length=2, data=[0, 0]
+	Heap allocation pointer: 38
+	Free space remaining = 62
+	AFTER COLLECTION**********************************
+	Object at address -100, length=9, data=[10, 16, 0, 0, 0, 0, 0, 0, 0]
+	Object at address -90, length=5, data=[0, 0, 0, 0, 0]
+	Object at address -84, length=4, data=[0, 0, 0, 0]
+	Heap allocation pointer: 21
+	Free space remaining = 79
+</pre></br>
+this output shows that after gargbage collection occurs the object pointed to within the the object of length 9 as well as that object its self were retained while everything else was thrown away.  Furthermore, the pointers are no longer preprsented as negative numbers.  Thus, if the Garbage collector is run again these three objects will be thrown away.  This gives the garbage collector a sort of "generational" property.</br></br>
+2.  The following code snippet illustrates how the program testHeap3.java can be modified so that `h.a` is replaced with a local integer variable.  We do this by first declaring a static local integer variable and then assigning the heap pointer returned by alloc to that variable.
+<?prettify?>
+<pre>
+    ...
+
+    // declare local variable
+    static int t;
+
+  public static void main(String[] args) {
+    Heap h = Heap.make(S);
+    h.alloc(3);
+
+    //assign position of heap pointer to local var.
+    t  = h.alloc(9);
+
+    h.alloc(3);
+    h.store(h.a, 1, h.alloc(5));      
+   
+    ...
+</pre></br>
+running this program produces the following output:</br>
+`Fatal error: Invalid object reference`</br>
+The reason this error is received is because we have lost the our reference to where we are in the heap and therefore we con't allocate subsequent objects appropriately.
+3.  If the referenced code snippet is ommited and the data in each new object is not initialized to zero during object creation then it will contain "junk" data which may have a negative value.  If that happens, such data will be interpreted by our `garbage collector` as a pointer to a valid object.  In the best case it points to a valid address on the heap and is saved inadvertently when it should have been discarded.  In the worst case it points to an address outside the heap and our program either explodes or becomes self aware and tries to eradicate the human infestation of earth.
