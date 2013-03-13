@@ -1,0 +1,1024 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>hw6.md</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/*body{
+    margin: 0 auto;
+    font-family: Georgia, Palatino, serif;
+    color: #444444;
+    line-height: 1;
+    max-width: 960px;
+    padding: 5px;
+}
+h1, h2, h3, h4 {
+    color: #111111;
+    font-weight: 400;
+}
+h1, h2, h3, h4, h5, p {
+    margin-bottom: 16px;
+    padding: 0;
+}
+h1 {
+    font-size: 28px;
+}
+h2 {
+    font-size: 22px;
+    margin: 20px 0 6px;
+}
+h3 {
+    font-size: 21px;
+}
+h4 {
+    font-size: 18px;
+}
+h5 {
+    font-size: 16px;
+}
+a {
+    color: #0099ff;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+a:hover {
+    text-decoration: none;
+    color: #ff6600;
+}
+a:visited {
+    color: purple;
+}
+ul, ol {
+    padding: 0;
+    margin: 0;
+}
+li {
+    line-height: 24px;
+    margin-left: 44px;
+}
+li ul, li ul {
+    margin-left: 24px;
+}
+p, ul, ol {
+    font-size: 14px;
+    line-height: 20px;
+    max-width: 540px;
+}
+pre {
+    padding: 0px 24px;
+    max-width: 800px;
+    white-space: pre-wrap;
+}
+code {
+    font-family: Consolas, Monaco, Andale Mono, monospace;
+    line-height: 1.5;
+    font-size: 13px;
+}
+aside {
+    display: block;
+    float: right;
+    width: 390px;
+}
+blockquote {
+    border-left:.5em solid #eee;
+    padding: 0 2em;
+    margin-left:0;
+    max-width: 476px;
+}
+blockquote  cite {
+    font-size:14px;
+    line-height:20px;
+    color:#bfbfbf;
+}
+blockquote cite:before {
+    content: '\2014 \00A0';
+}
+
+blockquote p {  
+    color: #666;
+    max-width: 460px;
+}
+hr {
+    width: 540px;
+    text-align: left;
+    margin: 0 auto 0 0;
+    color: #999;
+}
+
+button,
+input,
+select,
+textarea {
+  font-size: 100%;
+  margin: 0;
+  vertical-align: baseline;
+  *vertical-align: middle;
+}
+button, input {
+  line-height: normal;
+  *overflow: visible;
+}
+button::-moz-focus-inner, input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  cursor: pointer;
+  -webkit-appearance: button;
+}
+input[type=checkbox], input[type=radio] {
+  cursor: pointer;
+}
+/* override default chrome & firefox settings */
+/*input:not([type="image"]), textarea {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+input[type="search"] {
+  -webkit-appearance: textfield;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+label,
+input,
+select,
+textarea {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: normal;
+  margin-bottom: 18px;
+}
+input[type=checkbox], input[type=radio] {
+  cursor: pointer;
+  margin-bottom: 0;
+}
+input[type=text],
+input[type=password],
+textarea,
+select {
+  display: inline-block;
+  width: 210px;
+  padding: 4px;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 18px;
+  height: 18px;
+  color: #808080;
+  border: 1px solid #ccc;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+select, input[type=file] {
+  height: 27px;
+  line-height: 27px;
+}
+textarea {
+  height: auto;
+}
+
+/* grey out placeholders */
+:-moz-placeholder {
+  color: #bfbfbf;
+}
+::-webkit-input-placeholder {
+  color: #bfbfbf;
+}
+
+input[type=text],
+input[type=password],
+select,
+textarea {
+  -webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+  -moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+  transition: border linear 0.2s, box-shadow linear 0.2s;
+  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+input[type=text]:focus, input[type=password]:focus, textarea:focus {
+  outline: none;
+  border-color: rgba(82, 168, 236, 0.8);
+  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px rgba(82, 168, 236, 0.6);
+  -moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px rgba(82, 168, 236, 0.6);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px rgba(82, 168, 236, 0.6);
+}
+
+/* buttons */
+button {
+  display: inline-block;
+  padding: 4px 14px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+  background-color: #0064cd;
+  background-repeat: repeat-x;
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#049cdb), to(#0064cd));
+  background-image: -moz-linear-gradient(top, #049cdb, #0064cd);
+  background-image: -ms-linear-gradient(top, #049cdb, #0064cd);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #049cdb), color-stop(100%, #0064cd));
+  background-image: -webkit-linear-gradient(top, #049cdb, #0064cd);
+  background-image: -o-linear-gradient(top, #049cdb, #0064cd);
+  background-image: linear-gradient(top, #049cdb, #0064cd);
+  color: #fff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  border: 1px solid #004b9a;
+  border-bottom-color: #003f81;
+  -webkit-transition: 0.1s linear all;
+  -moz-transition: 0.1s linear all;
+  transition: 0.1s linear all;
+  border-color: #0064cd #0064cd #003f81;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+}
+button:hover {
+  color: #fff;
+  background-position: 0 -15px;
+  text-decoration: none;
+}
+button:active {
+  -webkit-box-shadow: inset 0 3px 7px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: inset 0 3px 7px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 3px 7px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}*/
+
+/* CSS stylesheet is based on Kevin Burke's Markdown.css project (http://kevinburke.bitbucket.org/markdowncss) */
+
+
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+ 
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+ 
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+ 
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+ 
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url("../../images/modules/styleguide/para.png") no-repeat 10px center;
+  text-decoration: none; }
+ 
+h1 tt, h1 code {
+  font-size: inherit; }
+ 
+h2 tt, h2 code {
+  font-size: inherit; }
+ 
+h3 tt, h3 code {
+  font-size: inherit; }
+ 
+h4 tt, h4 code {
+  font-size: inherit; }
+ 
+h5 tt, h5 code {
+  font-size: inherit; }
+ 
+h6 tt, h6 code {
+  font-size: inherit; }
+ 
+h1 {
+  font-size: 28px;
+  color: black; }
+ 
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+ 
+h3 {
+  font-size: 18px; }
+ 
+h4 {
+  font-size: 16px; }
+ 
+h5 {
+  font-size: 14px; }
+ 
+h6 {
+  color: #777777;
+  font-size: 14px; }
+ 
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+ 
+hr {
+  background: transparent url("../../images/modules/pulls/dirty-shade.png") repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0; }
+ 
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+ 
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+ 
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+ 
+li p.first {
+  display: inline-block; }
+ 
+ul, ol {
+  padding-left: 30px; }
+ 
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+ 
+ul :last-child, ol :last-child {
+  margin-bottom: 0; }
+ 
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+ 
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+ 
+table {
+  padding: 0; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      text-align: left;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      text-align: left;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+ 
+img {
+  max-width: 100%; }
+ 
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+ 
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+ 
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+ 
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+ 
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+</style>
+</head>
+<body>
+<hr />
+
+<h1>CS322 Languages and Compiler Design II Homework 6</h1>
+
+<hr />
+
+<h2>Question 1</h2>
+
+<?prettify?>
+
+<pre class="prettyprint linenums">
+class TestHeap2 {
+  static final int S = 100;
+  static final int N = 11;
+
+  public static void main(String[] args) {
+    Heap h = Heap.make(S);
+    for (int i=0; i&lt;N; i++){
+        System.out.println("Allocating object " + i
+                       + " at address " + h.alloc(8));
+    }
+    h.dump();
+    System.out.println("Free space remaining = " + h.freeSpace());
+  }
+}
+</pre>
+
+<p>The above program can be broken down into the following steps</p>
+
+<ul>
+<li>make a heap with <code>100</code> words (<code>S = 100</code>)</li>
+<li>allocate space for <code>11</code> objects  </li>
+<li>for each object allocate space for <code>8</code> fields (<code>N = 8</code>)</li>
+</ul>
+
+<p>Thus the program will only allow <code>N &lt; 12</code> ceteris paribus.  </p>
+
+<p>The reason for this is that each object contains <code>8</code> fields. which means it is neccessary to allocate <code>9</code> words on the heap for each object. <code>1</code> for each of the 8 fields and then <code>1</code> tag to specify the number of fields conatined within the object.  This means each object in this program neads to allocate space for a total of <code>9</code> words on the Heap.  Thus, when N equals <code>11</code>, there will be <code>99</code> words on the heap.</p>
+
+<p>more succinctly, this program will be able to allocate enough space on the heap if the following relationship holds true:</p>
+
+<pre><code>N * 9 &lt; S
+</code></pre>
+
+<p>So, If 'N >= 12' Program will encounter a fatal error due to lack of memory for the heap.</p>
+
+<p>We can manipulate N and S however we see fit, as long as this relationship holds, assuming the implementation of the body of the <code>For</code> is held constant.</p>
+
+<p>If we had a working garbage collector, everytime the heap filled up the next object would blow it away and start writing values on a fresh heap since none of the objects have any data in them thats being used.</p>
+
+<h2>Question 2</h2>
+
+<p>The implementation of <code>forward()</code> and <code>scavenge()</code> is as follows and annotated appropriately:</p>
+
+<pre>
+   private int forward(int obj) {
+        // If obj is not a pointer (i.e., if it is greater than
+        // or equal to zero), then you should just return obj
+        // directly
+        if (obj &gt;= 0) return obj;
+        // If obj is a pointer, but the length field of the object
+        // that it points to is negative, then (a) we can conclude
+        // that the object has already been forwarded; and (b) we
+        // can just return the (negative) length value, which is a
+        // pointer to the object's new location in toSpace.
+        int addy = size + obj;
+        if (heap[addy] &lt; 0) return heap[addy];
+        // If obj is a pointer and the length field is non negative,
+        // then it points to an object that needs to be forwarded to
+        // toSpace.  This requires us to copy the length word and
+        // the associated fields from the heap into the toSpace.
+        // After that, we overwrite the length field with a pointer
+        // to the location of the object in toSpace (because it is
+        // a pointer, this will be a negative number).
+        int retval = hp - size;  //this will return the proper pointer to this object
+        if (heap[addy] &gt;= 0) {
+
+            System.out.println("FORWARD:  object at " + obj);
+            // now we need to copy not only the objects len field
+            // but also every field in that object from heap into
+            // toSpace
+            for (int i = 0; i &lt;= heap[addy]; i++) {
+                toSpace[hp++] = heap[addy + i];
+            }
+            heap[addy] = retval;
+        }
+        return retval;
+    }
+
+    private int scavenge(int obj) {
+        System.out.println("\nBEGIN SCAVENGE: object at address " + (obj-size));
+        int len = toSpace[obj];
+        // Scan the fields in this object, using forward on
+        // any pointer fields that we find to make sure the
+        // objects that they refer to are copied into toSpace.
+
+        for (int i = obj; i &lt;= (obj + len); i++) {
+            toSpace[i] = forward(toSpace[i]);
+        }
+        System.out.println("END SCAVENGE: object at address " + (obj-size));
+        return len + 1;
+    }
+</pre>
+
+<p>this implementation is tested thouroughly in the following two questions, but for completeness the output of TestHeap2 - 4 is included here.  these tests were run with <code>Heap.make()</code> set to return an instance of <code>TwoSpace.java</code> so that the forward and scavenge methods would be used where appropriate.  Also, in order to more thoroghly illustrate their behavior print statements have been included within the body of the functions to denote scavaging and forwarding as shown in the code above: </p>
+
+<h3>Output</h3>
+
+<hr />
+
+<h4>TestHeap2</h4>
+
+<p>Output with <code>N = 15</code> &amp;&amp; <code>S = 100</code></p>
+
+<pre>
+Allocating object 0 at address -100
+Allocating object 1 at address -91
+Allocating object 2 at address -82
+Allocating object 3 at address -73
+Allocating object 4 at address -64
+Allocating object 5 at address -55
+Allocating object 6 at address -46
+Allocating object 7 at address -37
+Allocating object 8 at address -28
+Allocating object 9 at address -19
+Allocating object 10 at address -10
+Allocating object 11 at address -100
+Allocating object 12 at address -91
+Allocating object 13 at address -82
+Allocating object 14 at address -73
+Object at address -100, length=8, data=[0, 0, 0, 0, 0, 0, 0, 0]
+Object at address -91, length=8, data=[0, 0, 0, 0, 0, 0, 0, 0]
+Object at address -82, length=8, data=[0, 0, 0, 0, 0, 0, 0, 0]
+Object at address -73, length=8, data=[0, 0, 0, 0, 0, 0, 0, 0]
+Heap allocation pointer: 36
+Free space remaining = 64
+</pre>
+
+<h3>TestHeap3</h3>
+
+<pre>
+Object at address -100, length=3, data=[0, 0, 0]
+Object at address -96, length=9, data=[-82, -70, 0, 0, 0, 0, 0, 0, 0]
+Object at address -86, length=3, data=[0, 0, 0]
+Object at address -82, length=5, data=[0, 0, 0, 0, 0]
+Object at address -76, length=5, data=[0, 0, 0, 0, 0]
+Object at address -70, length=4, data=[0, 0, 0, 0]
+Object at address -65, length=2, data=[0, 0]
+Heap allocation pointer: 38
+Free space remaining = 62
+FORWARD:  object at -96
+
+BEGIN SCAVENGE: object at address -100
+FORWARD:  object at -82
+FORWARD:  object at -70
+END SCAVENGE: object at address -100
+
+BEGIN SCAVENGE: object at address -90
+END SCAVENGE: object at address -90
+
+BEGIN SCAVENGE: object at address -84
+END SCAVENGE: object at address -84
+AFTER COLLECTION**********************************
+Object at address -100, length=9, data=[-90, -84, 0, 0, 0, 0, 0, 0, 0]
+Object at address -90, length=5, data=[0, 0, 0, 0, 0]
+Object at address -84, length=4, data=[0, 0, 0, 0]
+Heap allocation pointer: 21
+Free space remaining = 79
+</pre>
+
+<h3>TestHeap4</h3>
+
+<pre>
+Allocating object 2 at address -65
+Allocating object 3 at address -61
+Allocating object 4 at address -56
+Allocating object 5 at address -50
+Allocating object 6 at address -43
+Allocating object 7 at address -35
+Allocating object 8 at address -26
+Allocating object 9 at address -16
+Before garbage collection;
+Object at address -65, length=3, data=[-66, -63, 0]
+Object at address -61, length=4, data=[-62, -58, 0, 0]
+Object at address -56, length=5, data=[-57, -52, 0, 0, 0]
+Object at address -50, length=6, data=[-51, -45, 0, 0, 0, 0]
+Object at address -43, length=7, data=[-44, -37, 0, 0, 0, 0, 0]
+Object at address -35, length=8, data=[-36, -28, 0, 0, 0, 0, 0, 0]
+Object at address -26, length=9, data=[-27, -18, 0, 0, 0, 0, 0, 0, 0]
+Object at address -16, length=10, data=[-17, -7, 0, 0, 0, 0, 0, 0, 0, 0]
+Heap allocation pointer: 60
+Free space remaining = 5
+FORWARD:  object at -16
+
+BEGIN SCAVENGE: object at address -65
+FORWARD:  object at -17
+FORWARD:  object at -7
+END SCAVENGE: object at address -65
+
+BEGIN SCAVENGE: object at address -54
+END SCAVENGE: object at address -54
+
+BEGIN SCAVENGE: object at address -53
+END SCAVENGE: object at address -53
+After garbage collection;
+Object at address -65, length=10, data=[-54, -53, 0, 0, 0, 0, 0, 0, 0, 0]
+Object at address -54, length=0, data=[]
+Object at address -53, length=0, data=[]
+Heap allocation pointer: 13
+Free space remaining = 52
+FORWARD:  object at -65
+
+BEGIN SCAVENGE: object at address -65
+FORWARD:  object at -54
+FORWARD:  object at -53
+END SCAVENGE: object at address -65
+
+BEGIN SCAVENGE: object at address -54
+END SCAVENGE: object at address -54
+
+BEGIN SCAVENGE: object at address -53
+END SCAVENGE: object at address -53
+After garbage collection;
+Object at address -65, length=10, data=[-54, -53, 0, 0, 0, 0, 0, 0, 0, 0]
+Object at address -54, length=0, data=[]
+Object at address -53, length=0, data=[]
+Heap allocation pointer: 13
+Free space remaining = 52
+FORWARD:  object at -65
+
+BEGIN SCAVENGE: object at address -65
+FORWARD:  object at -54
+FORWARD:  object at -53
+END SCAVENGE: object at address -65
+
+BEGIN SCAVENGE: object at address -54
+END SCAVENGE: object at address -54
+
+BEGIN SCAVENGE: object at address -53
+END SCAVENGE: object at address -53
+After garbage collection;
+Object at address -65, length=10, data=[-54, -53, 0, 0, 0, 0, 0, 0, 0, 0]
+Object at address -54, length=0, data=[]
+Object at address -53, length=0, data=[]
+Heap allocation pointer: 13
+Free space remaining = 52
+FORWARD:  object at -65
+
+BEGIN SCAVENGE: object at address -65
+FORWARD:  object at -54
+FORWARD:  object at -53
+END SCAVENGE: object at address -65
+
+BEGIN SCAVENGE: object at address -54
+END SCAVENGE: object at address -54
+
+BEGIN SCAVENGE: object at address -53
+END SCAVENGE: object at address -53
+After garbage collection;
+Object at address -65, length=10, data=[-54, -53, 0, 0, 0, 0, 0, 0, 0, 0]
+Object at address -54, length=0, data=[]
+Object at address -53, length=0, data=[]
+Heap allocation pointer: 13
+Free space remaining = 52
+</pre>
+
+<p><strong><em>Please Note:</em></strong> The specific tests which produced the output above have been included in their entirety in the appendix for reference.</p>
+
+<h2>Question 3</h2>
+
+<ol>
+<li>The referenced program produces the following output:
+<?prettify?>
+<pre>
+Object at address -100, length=3, data=[0, 0, 0]
+Object at address -96, length=9, data=[-82, -70, 0, 0, 0, 0, 0, 0, 0]
+Object at address -86, length=3, data=[0, 0, 0]
+Object at address -82, length=5, data=[0, 0, 0, 0, 0]
+Object at address -76, length=5, data=[0, 0, 0, 0, 0]
+Object at address -70, length=4, data=[0, 0, 0, 0]
+Object at address -65, length=2, data=[0, 0]
+Heap allocation pointer: 38
+Free space remaining = 62
+AFTER COLLECTION<strong><em>*</em><em>*</em><em>*</em><em>*</em><em>*</em><em>*</em><em>*</em><em>*</em><em>*</em><em>*</em></strong>
+Object at address -100, length=9, data=[-90, -84, 0, 0, 0, 0, 0, 0, 0]
+Object at address -90, length=5, data=[0, 0, 0, 0, 0]
+Object at address -84, length=4, data=[0, 0, 0, 0]
+Heap allocation pointer: 21
+Free space remaining = 79
+</pre></br>
+this output shows that after gargbage collection occurs the object pointed to within the the object of length 9 as well as that object itself were retained while everything else was thrown away.  Furthermore, the pointers stored in the first object of length 9 have been amended to reference the new addresses for the objects they reference.  this is very good news indeed.</br></br></li>
+<li><p>The following code snippet illustrates how the program testHeap3.java can be modified so that <code>h.a</code> is replaced with a local integer variable.  We do this by first declaring a static local integer variable and then assigning the heap pointer returned by alloc to that variable.
+<?prettify?>
+<pre>
+...</p>
+
+<p>// declare local variable
+static int t;</p>
+
+<p>public static void main(String[] args) {
+Heap h = Heap.make(S);
+h.alloc(3);</p>
+
+<p>//assign position of heap pointer to local var.
+t  = h.alloc(9);</p>
+
+<p>h.alloc(3);
+h.store(h.a, 1, h.alloc(5));      </p>
+
+<p>...
+</pre></br>
+running this program produces the following output:</br>
+<code>Fatal error: Invalid object reference</code></br>
+The reason this error is received is because we have lost the our reference to where we are in the heap and therefore we con't allocate subsequent objects appropriately.</p></li>
+<li>If the referenced code snippet is ommited and the data in each new object is not initialized to zero during object creation then it will contain "junk" data which may have a negative value.  If that happens, such data will be interpreted by our <code>garbage collector</code> as a pointer to a valid object.  In the best case it points to a valid address on the heap and is saved inadvertently when it should have been discarded.  In the worst case it points to an address outside the heap and our program either explodes or becomes self aware and tries to eradicate the human infestation of earth.</li>
+</ol>
+
+<h2>Question 4</h2>
+
+<ol>
+<li>In order for this program to function without resulting in <code>Fatal error: Out of memory!</code> the following relationship between <code>S</code> and <code>N</code> must hold<pre><img src="http://latex.codecogs.com/gif.latex?S>\sum_{i=2}^{N}i" border="0"/></pre></li>
+<li>Calling <code>garbageCollect()</code> on the heap produced by this program will preserve all objects in reverse order on the new, garbage collected, heap. </li>
+<li>cyclic structures can be created and preserved by the garbage collecter which is illustrated in the following annotated program and its accompanying output.<pre>
+class TestHeap5 {
+    static final int S = 42;
+        public static void main(String[] args) {
+        Heap h = Heap.make(S);
+        // allocate space for two objects on the heap
+        h.a = h.alloc(1);
+        h.b = h.alloc(1);<br />
+        // store a pointer to the second object in the first object
+        h.store(h.a, 1, h.b);<br />
+        //store a pointer to the first object in the second
+        h.store(h.b, 1, h.a);<br />
+        System.out.println("Before garbage collection;");
+        h.dump();
+        System.out.println("Free space remaining = " + h.freeSpace());<br />
+        h.garbageCollect();
+        System.out.println("After garbage collection;");
+        h.dump();
+        System.out.println("Free space remaining = " + h.freeSpace());
+    }
+}
+</pre><pre>Before garbage collection;
+Object at address -42, length=1, data=[-40]
+Object at address -40, length=1, data=[-42]
+Heap allocation pointer: 4
+Free space remaining = 38
+After garbage collection;
+Object at address -42, length=1, data=[-40]
+Object at address -40, length=1, data=[-42]
+Heap allocation pointer: 4
+Free space remaining = 38
+</pre>
+Its apparent from the output generated above that the two objects point to eachother and that they are indeed being preserved on the heap after garbage collection.  However, for good measure and for science I repeated the experiment twice more for good measure by appending two more garbage collection cycles to the previous program and the results confirm that the values appear to be preserved.<pre>Before garbage collection;
+Object at address -42, length=1, data=[-40]
+Object at address -40, length=1, data=[-42]
+Heap allocation pointer: 4
+Free space remaining = 38
+After garbage collection;
+Object at address -42, length=1, data=[-40]
+Object at address -40, length=1, data=[-42]
+Heap allocation pointer: 4
+Free space remaining = 38
+After garbage collection;
+Object at address -42, length=1, data=[-40]
+Object at address -40, length=1, data=[-42]
+Heap allocation pointer: 4
+Free space remaining = 38
+After garbage collection;
+Object at address -42, length=1, data=[-40]
+Object at address -40, length=1, data=[-42]
+Heap allocation pointer: 4
+Free space remaining = 38</pre></li>
+</ol>
+
+<h2>Appendix</h2>
+
+<pre>
+class TestHeap2 {
+  static final int S = 100;
+  static final int N = 15;
+
+  public static void main(String[] args) {
+    Heap h = Heap.make(S);
+    for (int i=0; i &lt; N; i++) {
+      System.out.println("Allocating object " + i
+                       + " at address " + h.alloc(8));
+    }
+    h.dump();
+    System.out.println("Free space remaining = " + h.freeSpace());
+  }
+}
+</pre>
+
+<p></br></p>
+
+<pre>
+class TestHeap3 {
+  static final int S = 100;
+    // declare local variable
+    static int t;
+  public static void main(String[] args) {
+    Heap h = Heap.make(S);
+    h.alloc(3);
+    //assign position of heap pointer to local var.
+    h.a = h.alloc(9);
+    h.alloc(3);
+    h.store(h.a, 1, h.alloc(5));
+    h.alloc(5);
+    h.store(h.a, 2, h.alloc(4));
+    h.alloc(2);
+
+    h.dump();
+    System.out.println("Free space remaining = " + h.freeSpace());
+
+    h.garbageCollect();
+
+      System.out.println("AFTER COLLECTION**********************************");
+    h.dump();
+    System.out.println("Free space remaining = " + h.freeSpace());
+  }
+}
+</pre>
+
+<pre>
+class TestHeap4 {
+    static final int S = 65;
+    static final int N = 10;
+
+    public static void main(String[] args) {
+        Heap h = Heap.make(S);
+        for (int i = 2; i &lt; N; i++) {
+            int t = h.alloc(1 + i);
+            System.out.println("Allocating object " + i + " at address " + t);
+            h.store(t, 1, t - 1);
+            h.store(t, 2, t + i);
+            h.a = t;
+        }
+        System.out.println("Before garbage collection;");
+        h.dump();
+        System.out.println("Free space remaining = " + h.freeSpace());
+
+        h.garbageCollect();
+
+        System.out.println("After garbage collection;");
+        h.dump();
+        System.out.println("Free space remaining = " + h.freeSpace());
+
+        h.garbageCollect();
+
+
+        System.out.println("After garbage collection;");
+        h.dump();
+        System.out.println("Free space remaining = " + h.freeSpace());
+
+        h.garbageCollect();
+
+
+        System.out.println("After garbage collection;");
+        h.dump();
+        System.out.println("Free space remaining = " + h.freeSpace());
+
+        h.garbageCollect();
+
+
+        System.out.println("After garbage collection;");
+        h.dump();
+        System.out.println("Free space remaining = " + h.freeSpace());
+
+    }
+}
+</pre>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
