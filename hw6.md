@@ -46,14 +46,14 @@ The implementation of `forward()` and `scavenge()` is as follows and annotated a
         // If obj is not a pointer (i.e., if it is greater than
         // or equal to zero), then you should just return obj
         // directly
-        if (obj >= 0) return obj;
+        if (obj &gt;= 0) return obj;
         // If obj is a pointer, but the length field of the object
         // that it points to is negative, then (a) we can conclude
         // that the object has already been forwarded; and (b) we
         // can just return the (negative) length value, which is a
         // pointer to the object's new location in toSpace.
         int addy = size + obj;
-        if (heap[addy] < 0) return heap[addy];
+        if (heap[addy] &lt; 0) return heap[addy];
         // If obj is a pointer and the length field is non negative,
         // then it points to an object that needs to be forwarded to
         // toSpace.  This requires us to copy the length word and
@@ -62,13 +62,13 @@ The implementation of `forward()` and `scavenge()` is as follows and annotated a
         // to the location of the object in toSpace (because it is
         // a pointer, this will be a negative number).
         int retval = hp - size;  //this will return the proper pointer to this object
-        if (heap[addy] >= 0) {
+        if (heap[addy] &gt;= 0) {
 
             System.out.println("FORWARD:  object at " + obj);
             // now we need to copy not only the objects len field
             // but also every field in that object from heap into
             // toSpace
-            for (int i = 0; i <= heap[addy]; i++) {
+            for (int i = 0; i &lt;= heap[addy]; i++) {
                 toSpace[hp++] = heap[addy + i];
             }
             heap[addy] = retval;
@@ -83,14 +83,13 @@ The implementation of `forward()` and `scavenge()` is as follows and annotated a
         // any pointer fields that we find to make sure the
         // objects that they refer to are copied into toSpace.
 
-        for (int i = obj; i <= (obj + len); i++) {
+        for (int i = obj; i &lt;= (obj + len); i++) {
             toSpace[i] = forward(toSpace[i]);
         }
         System.out.println("END SCAVENGE: object at address " + (obj-size));
         return len + 1;
     }
 </pre>
-</br>
 this implementation is tested thouroughly in the following two questions, but for completeness the output of TestHeap2 - 4 is included here.  these tests were run with `Heap.make()` set to return an instance of `TwoSpace.java` so that the forward and scavenge methods would be used where appropriate.  Also, in order to more thoroghly illustrate their behavior print statements have been included within the body of the functions to denote scavaging and forwarding as shown in the code above: 
 ###Output
 
