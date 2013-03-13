@@ -1,3 +1,5 @@
+package src.main.java;
+
 class TestHeap1 {
   static final int S = 100;
 
