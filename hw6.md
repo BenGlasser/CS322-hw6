@@ -90,6 +90,7 @@ The implementation of `forward()` and `scavenge()` is as follows and annotated a
         return len + 1;
     }
 </pre>
+</br>
 this implementation is tested thouroughly in the following two questions, but for completeness the output of TestHeap2 - 4 is included here.  these tests were run with `Heap.make()` set to return an instance of `TwoSpace.java` so that the forward and scavenge methods would be used where appropriate.  Also, in order to more thoroghly illustrate their behavior print statements have been included within the body of the functions to denote scavaging and forwarding as shown in the code above: 
 ###Output
 
