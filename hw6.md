@@ -151,8 +151,100 @@ Free space remaining = 79
 </pre>
 ###TestHeap4
 <pre>
+Allocating object 2 at address -65
+Allocating object 3 at address -61
+Allocating object 4 at address -56
+Allocating object 5 at address -50
+Allocating object 6 at address -43
+Allocating object 7 at address -35
+Allocating object 8 at address -26
+Allocating object 9 at address -16
+Before garbage collection;
+Object at address -65, length=3, data=[-66, -63, 0]
+Object at address -61, length=4, data=[-62, -58, 0, 0]
+Object at address -56, length=5, data=[-57, -52, 0, 0, 0]
+Object at address -50, length=6, data=[-51, -45, 0, 0, 0, 0]
+Object at address -43, length=7, data=[-44, -37, 0, 0, 0, 0, 0]
+Object at address -35, length=8, data=[-36, -28, 0, 0, 0, 0, 0, 0]
+Object at address -26, length=9, data=[-27, -18, 0, 0, 0, 0, 0, 0, 0]
+Object at address -16, length=10, data=[-17, -7, 0, 0, 0, 0, 0, 0, 0, 0]
+Heap allocation pointer: 60
+Free space remaining = 5
+FORWARD:  object at -16
 
+BEGIN SCAVENGE: object at address -65
+FORWARD:  object at -17
+FORWARD:  object at -7
+END SCAVENGE: object at address -65
+
+BEGIN SCAVENGE: object at address -54
+END SCAVENGE: object at address -54
+
+BEGIN SCAVENGE: object at address -53
+END SCAVENGE: object at address -53
+After garbage collection;
+Object at address -65, length=10, data=[-54, -53, 0, 0, 0, 0, 0, 0, 0, 0]
+Object at address -54, length=0, data=[]
+Object at address -53, length=0, data=[]
+Heap allocation pointer: 13
+Free space remaining = 52
+FORWARD:  object at -65
+
+BEGIN SCAVENGE: object at address -65
+FORWARD:  object at -54
+FORWARD:  object at -53
+END SCAVENGE: object at address -65
+
+BEGIN SCAVENGE: object at address -54
+END SCAVENGE: object at address -54
+
+BEGIN SCAVENGE: object at address -53
+END SCAVENGE: object at address -53
+After garbage collection;
+Object at address -65, length=10, data=[-54, -53, 0, 0, 0, 0, 0, 0, 0, 0]
+Object at address -54, length=0, data=[]
+Object at address -53, length=0, data=[]
+Heap allocation pointer: 13
+Free space remaining = 52
+FORWARD:  object at -65
+
+BEGIN SCAVENGE: object at address -65
+FORWARD:  object at -54
+FORWARD:  object at -53
+END SCAVENGE: object at address -65
+
+BEGIN SCAVENGE: object at address -54
+END SCAVENGE: object at address -54
+
+BEGIN SCAVENGE: object at address -53
+END SCAVENGE: object at address -53
+After garbage collection;
+Object at address -65, length=10, data=[-54, -53, 0, 0, 0, 0, 0, 0, 0, 0]
+Object at address -54, length=0, data=[]
+Object at address -53, length=0, data=[]
+Heap allocation pointer: 13
+Free space remaining = 52
+FORWARD:  object at -65
+
+BEGIN SCAVENGE: object at address -65
+FORWARD:  object at -54
+FORWARD:  object at -53
+END SCAVENGE: object at address -65
+
+BEGIN SCAVENGE: object at address -54
+END SCAVENGE: object at address -54
+
+BEGIN SCAVENGE: object at address -53
+END SCAVENGE: object at address -53
+After garbage collection;
+Object at address -65, length=10, data=[-54, -53, 0, 0, 0, 0, 0, 0, 0, 0]
+Object at address -54, length=0, data=[]
+Object at address -53, length=0, data=[]
+Heap allocation pointer: 13
+Free space remaining = 52
 </pre>
+
+***Please Note:*** The specific tests which produced the output above have been included in their entirety in the appendix for reference.
 
 
 ##Question 3
@@ -256,3 +348,97 @@ Object at address -42, length=1, data=[-40]
 Object at address -40, length=1, data=[-42]
 Heap allocation pointer: 4
 Free space remaining = 38</pre>
+
+##Appendix
+<pre>
+class TestHeap2 {
+  static final int S = 100;
+  static final int N = 15;
+
+  public static void main(String[] args) {
+    Heap h = Heap.make(S);
+    for (int i=0; i &lt; N; i++) {
+      System.out.println("Allocating object " + i
+                       + " at address " + h.alloc(8));
+    }
+    h.dump();
+    System.out.println("Free space remaining = " + h.freeSpace());
+  }
+}
+</pre>
+</br>
+<pre>
+class TestHeap3 {
+  static final int S = 100;
+    // declare local variable
+    static int t;
+  public static void main(String[] args) {
+    Heap h = Heap.make(S);
+    h.alloc(3);
+    //assign position of heap pointer to local var.
+    h.a = h.alloc(9);
+    h.alloc(3);
+    h.store(h.a, 1, h.alloc(5));
+    h.alloc(5);
+    h.store(h.a, 2, h.alloc(4));
+    h.alloc(2);
+
+    h.dump();
+    System.out.println("Free space remaining = " + h.freeSpace());
+
+    h.garbageCollect();
+
+      System.out.println("AFTER COLLECTION**********************************");
+    h.dump();
+    System.out.println("Free space remaining = " + h.freeSpace());
+  }
+}
+</pre>
+<pre>
+class TestHeap4 {
+    static final int S = 65;
+    static final int N = 10;
+
+    public static void main(String[] args) {
+        Heap h = Heap.make(S);
+        for (int i = 2; i &lt; N; i++) {
+            int t = h.alloc(1 + i);
+            System.out.println("Allocating object " + i + " at address " + t);
+            h.store(t, 1, t - 1);
+            h.store(t, 2, t + i);
+            h.a = t;
+        }
+        System.out.println("Before garbage collection;");
+        h.dump();
+        System.out.println("Free space remaining = " + h.freeSpace());
+
+        h.garbageCollect();
+
+        System.out.println("After garbage collection;");
+        h.dump();
+        System.out.println("Free space remaining = " + h.freeSpace());
+
+        h.garbageCollect();
+
+
+        System.out.println("After garbage collection;");
+        h.dump();
+        System.out.println("Free space remaining = " + h.freeSpace());
+
+        h.garbageCollect();
+
+
+        System.out.println("After garbage collection;");
+        h.dump();
+        System.out.println("Free space remaining = " + h.freeSpace());
+
+        h.garbageCollect();
+
+
+        System.out.println("After garbage collection;");
+        h.dump();
+        System.out.println("Free space remaining = " + h.freeSpace());
+
+    }
+}
+</pre>
